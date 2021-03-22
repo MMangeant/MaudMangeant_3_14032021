@@ -26,7 +26,6 @@ body{
     text-align: center;
     background-color: $col-gris2;
     padding: 10px 0;
-    z-index: -1;
 }
 
 .diapo{
@@ -69,7 +68,7 @@ body{
     margin: 20px 0;
     @include shadow;
     &__img {
-        height: 37vh;
+        height: 35vh;
         img{
             width: 100%;
             height: 100%;  
@@ -100,8 +99,36 @@ footer{
 
 .logo-footer{
     &__img {
+        width: 30%;
         img{
             filter: invert(1);
+            width: 100%;
+        }
+    }
+}
+
+
+/**/
+
+
+.diapo-photo{
+    &__img{
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.menu{
+    @include padding-cote;
+    background-color: $col-gris1;
+    border-radius: 20px 20px 0 0;
+    &__button{
+        &__txt{
+            background-color: $col-blanc;
+            padding: 25px;
+            border-radius: 20px;
+            @include shadow;
         }
     }
 }

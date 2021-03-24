@@ -1,0 +1,25 @@
+
+@mixin shadow{
+    box-shadow: 0px 3px 10px rgb(0 0 0 / 20%);
+}
+
+@mixin padding-cote{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@mixin padding-hautbas{
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+@mixin typo1{
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+@mixin typo2{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+

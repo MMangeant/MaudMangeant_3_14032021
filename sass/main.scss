@@ -1,15 +1,18 @@
 @import "./utils/variables.scss";
 @import "./utils/mixins.scss";
+@import "./base/fonts.scss";
 
 body{
     background-color: $col-gris1;
     box-sizing: border-box;
     margin: 0;
-    font-family: sans-serif;
+    font-family: $typo;
+
 }
 
 .logo-header{
     background-color: $col-blanc;
+    position: relative;
     @include shadow;
     z-index: 1;
     &__img {
@@ -22,19 +25,34 @@ body{
     }
 }
 
+/* Accueil */
+
 #localisation{
-    text-align: center;
     background-color: $col-gris2;
     padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+        margin: 10px 0 10px 25px;
+    }
 }
 
 .diapo{
     @include padding-cote;
     text-align: center;
+    @include padding-hautbas;
+    h1{
+        font-weight: bold;
+    }
+    p{
+        font-weight: 300;
+    }
     &__button{
         padding: 30px 0 40px 0;
         a{
-            background-color: $col-ton2;
+            background: linear-gradient(to bottom, $col-ton2, $col-ton1);
+            font-weight: 500;
             color: $col-blanc;
             padding: 15px 22px;
             border-radius: 50px;
@@ -45,21 +63,46 @@ body{
 
 .fonction{
     background-color: $col-blanc;
-    padding-top: 1px;
-    padding-bottom: 1px;
     @include padding-cote;
+    @include padding-hautbas;
     &__button{
+        position: relative;
+        background-color: $col-gris1;
+        padding: 25px 25px 25px 35px;
+        margin: 25px 0 0 10px;
+        border-radius: 20px;
+        @include shadow;
+        i{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.5;
+        }
         h3{
-            background-color: $col-gris1;
-            padding: 25px;
-            border-radius: 20px;
-            @include shadow;
+            font-weight: 400;
+            margin: 0 0 0 40px;
+        }
+        &__number{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #9356DC;
+            width: 25px;
+            height: 25px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 500;
+            left: -13px;
         }
     }
 }
 
 .restos{
     @include padding-cote;
+    @include padding-hautbas;
 }
 
 .restos-cont{
@@ -79,12 +122,23 @@ body{
     }
     &__text{
         padding: 17px;
+        position: relative;
         h2{
             margin: 0;
+            @include typo2;
         }
         p{
             margin: 0;
-            margin-top: 7px;
+            margin-top: 5px;
+            @include typo1;
+        }
+        i{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-right: 17px;
+            opacity: 0.5;
         }
     }
 }
@@ -97,7 +151,7 @@ footer{
     padding-bottom: 20px;
 }
 
-.logo-footer{
+.footer-logo{
     &__img {
         width: 30%;
         img{
@@ -107,27 +161,102 @@ footer{
     }
 }
 
+.footer-txt{
+    position: relative;
+    i{
+        position: absolute;
+    }
+    p{
+        margin-left: 25px;
+    }
 
-/**/
+}
 
 
-.diapo-photo{
-    &__img{
-        img{
-            width: 100%;
-        }
+
+/* Pages de Menu */
+
+.fa-arrow-left{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+    font-size: 25px;
+}
+
+.fa-heart{
+    font-size: 25px;
+}
+
+.photo{
+    position: absolute;
+    z-index: -1;
+    top: 13vh;
+    img{
+        width: 100%;
     }
 }
 
 .menu{
     @include padding-cote;
+    padding-top: 10px;
     background-color: $col-gris1;
-    border-radius: 20px 20px 0 0;
-    &__button{
-        &__txt{
+    border-radius: 40px 40px 0 0;
+    margin-top: 40vh;
+    &__titre{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1{
+            font-family: $typo-titre;
+            font-size: 1.8rem;
+            font-weight: normal;
+        }
+    }
+    &__cont{
+        h2{
+            text-transform: uppercase;
+            font-weight: 300;
+            position: relative;
+            font-size: 1.1rem;
+            margin: 7vh 0 4vh 0;
+            &::before{
+                content: '';
+                background-color: #99E2D0;
+                height: 3px;
+                width: 50px;
+                top: 0;
+                position: absolute;
+                top: 25px;
+            }
+        }
+        &__plat{
             background-color: $col-blanc;
-            padding: 25px;
+            padding: 15px;
+            margin: 3vh 0;
             border-radius: 20px;
+            @include shadow;
+            h3{
+                @include typo2;
+                margin: 0;
+                margin-bottom: 1vh;
+            }
+            p{
+                margin: 0;
+                @include typo1;
+            }
+        }    
+    }
+    &__button{
+        padding: 30px 0 40px 0;
+        display: flex;
+        justify-content: center;
+        a{
+            background: linear-gradient(to bottom, $col-ton2, $col-ton1);
+            font-weight: 500;
+            color: $col-blanc;
+            padding: 15px 40px;
+            border-radius: 50px;
             @include shadow;
         }
     }

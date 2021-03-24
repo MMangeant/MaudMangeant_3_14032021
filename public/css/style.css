@@ -1,12 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 body {
   background-color: #f6f6f6;
   box-sizing: border-box;
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .logo-header {
   background-color: #fff;
+  position: relative;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -19,22 +22,37 @@ body {
   width: 100%;
 }
 
+/* Accueil */
 #localisation {
-  text-align: center;
   background-color: #eaeaea;
   padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#localisation p {
+  margin: 10px 0 10px 25px;
 }
 
 .diapo {
   padding-left: 30px;
   padding-right: 30px;
   text-align: center;
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+.diapo h1 {
+  font-weight: bold;
+}
+.diapo p {
+  font-weight: 300;
 }
 .diapo__button {
   padding: 30px 0 40px 0;
 }
 .diapo__button a {
-  background-color: #FF79DA;
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  font-weight: 500;
   color: #fff;
   padding: 15px 22px;
   border-radius: 50px;
@@ -43,21 +61,50 @@ body {
 
 .fonction {
   background-color: #fff;
-  padding-top: 1px;
-  padding-bottom: 1px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
-.fonction__button h3 {
+.fonction__button {
+  position: relative;
   background-color: #f6f6f6;
-  padding: 25px;
+  padding: 25px 25px 25px 35px;
+  margin: 25px 0 0 10px;
   border-radius: 20px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.fonction__button i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+}
+.fonction__button h3 {
+  font-weight: 400;
+  margin: 0 0 0 40px;
+}
+.fonction__button__number {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #9356DC;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 500;
+  left: -13px;
 }
 
 .restos {
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 
 .restos-cont {
@@ -78,13 +125,26 @@ body {
 }
 .restos-cont__text {
   padding: 17px;
+  position: relative;
 }
 .restos-cont__text h2 {
   margin: 0;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 .restos-cont__text p {
   margin: 0;
-  margin-top: 7px;
+  margin-top: 5px;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+.restos-cont__text i {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-right: 17px;
+  opacity: 0.5;
 }
 
 footer {
@@ -96,29 +156,109 @@ footer {
   padding-bottom: 20px;
 }
 
-.logo-footer__img {
+.footer-logo__img {
   width: 30%;
 }
-.logo-footer__img img {
+.footer-logo__img img {
   filter: invert(1);
   width: 100%;
 }
 
-/**/
-.diapo-photo__img img {
+.footer-txt {
+  position: relative;
+}
+.footer-txt i {
+  position: absolute;
+}
+.footer-txt p {
+  margin-left: 25px;
+}
+
+/* Pages de Menu */
+.fa-arrow-left {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5%;
+  font-size: 25px;
+}
+
+.fa-heart {
+  font-size: 25px;
+}
+
+.photo {
+  position: absolute;
+  z-index: -1;
+  top: 13vh;
+}
+.photo img {
   width: 100%;
 }
 
 .menu {
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 10px;
   background-color: #f6f6f6;
-  border-radius: 20px 20px 0 0;
+  border-radius: 40px 40px 0 0;
+  margin-top: 40vh;
 }
-.menu__button__txt {
+.menu__titre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu__titre h1 {
+  font-family: "Shrikhand", cursive;
+  font-size: 1.8rem;
+  font-weight: normal;
+}
+.menu__cont h2 {
+  text-transform: uppercase;
+  font-weight: 300;
+  position: relative;
+  font-size: 1.1rem;
+  margin: 7vh 0 4vh 0;
+}
+.menu__cont h2::before {
+  content: "";
+  background-color: #99E2D0;
+  height: 3px;
+  width: 50px;
+  top: 0;
+  position: absolute;
+  top: 25px;
+}
+.menu__cont__plat {
   background-color: #fff;
-  padding: 25px;
+  padding: 15px;
+  margin: 3vh 0;
   border-radius: 20px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.menu__cont__plat h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 0;
+  margin-bottom: 1vh;
+}
+.menu__cont__plat p {
+  margin: 0;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+.menu__button {
+  padding: 30px 0 40px 0;
+  display: flex;
+  justify-content: center;
+}
+.menu__button a {
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  font-weight: 500;
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 50px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 

@@ -108,7 +108,7 @@ body{
 .restos-cont{
     background-color: $col-blanc;
     border-radius: 20px;
-    margin: 20px 0;
+    margin: 25px 0;
     @include shadow;
     &__img {
         height: 35vh;
@@ -138,7 +138,6 @@ body{
             top: 50%;
             transform: translateY(-50%);
             padding-right: 17px;
-            opacity: 0.5;
         }
     }
 }
@@ -186,6 +185,7 @@ footer{
 
 .fa-heart{
     font-size: 25px;
+    opacity: 0.7;
 }
 
 .photo{
@@ -203,39 +203,46 @@ footer{
     background-color: $col-gris1;
     border-radius: 40px 40px 0 0;
     margin-top: 40vh;
-    &__titre{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        h1{
-            font-family: $typo-titre;
-            font-size: 1.8rem;
-            font-weight: normal;
+}
+
+.menu-titre{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+        font-family: $typo-titre;
+        font-size: 1.8rem;
+        font-weight: normal;
+    }
+}
+
+.menu-cont{
+    h2{
+        text-transform: uppercase;
+        font-weight: 300;
+        position: relative;
+        font-size: 1.1rem;
+        margin: 7vh 0 4vh 0;
+        &::before{
+            content: '';
+            background-color: #99E2D0;
+            height: 3px;
+            width: 45px;
+            top: 0;
+            position: absolute;
+            top: 25px;
         }
     }
-    &__cont{
-        h2{
-            text-transform: uppercase;
-            font-weight: 300;
-            position: relative;
-            font-size: 1.1rem;
-            margin: 7vh 0 4vh 0;
-            &::before{
-                content: '';
-                background-color: #99E2D0;
-                height: 3px;
-                width: 50px;
-                top: 0;
-                position: absolute;
-                top: 25px;
-            }
-        }
-        &__plat{
-            background-color: $col-blanc;
-            padding: 15px;
-            margin: 3vh 0;
-            border-radius: 20px;
-            @include shadow;
+    &__plat{
+        background-color: $col-blanc;
+        padding: 15px;
+        margin: 3vh 0;
+        border-radius: 20px;
+        @include shadow;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        &__txt{
             h3{
                 @include typo2;
                 margin: 0;
@@ -245,19 +252,27 @@ footer{
                 margin: 0;
                 @include typo1;
             }
-        }    
-    }
-    &__button{
-        padding: 30px 0 40px 0;
-        display: flex;
-        justify-content: center;
-        a{
-            background: linear-gradient(to bottom, $col-ton2, $col-ton1);
-            font-weight: 500;
-            color: $col-blanc;
-            padding: 15px 40px;
-            border-radius: 50px;
-            @include shadow;
         }
+        &__prix{
+            p{
+                @include typo2;
+                margin: 0;
+            }
+        }
+        
+    }  
+}
+
+.menu-button{
+    padding: 30px 0 40px 0;
+    display: flex;
+    justify-content: center;
+    a{
+        background: linear-gradient(to bottom, $col-ton2, $col-ton1);
+        font-weight: 500;
+        color: $col-blanc;
+        padding: 15px 40px;
+        border-radius: 50px;
+        @include shadow;
     }
 }

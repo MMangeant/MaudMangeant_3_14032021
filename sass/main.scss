@@ -105,13 +105,18 @@ body{
     @include padding-hautbas;
 }
 
+.restos-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+}
+
 .restos-cont{
     background-color: $col-blanc;
     border-radius: 20px;
-    margin: 25px 0;
     @include shadow;
     &__img {
-        height: 35vh;
+        height: 45vh;
         img{
             width: 100%;
             height: 100%;  
@@ -216,6 +221,11 @@ footer{
     }
 }
 
+.menu-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
 .menu-cont{
     h2{
         text-transform: uppercase;
@@ -274,5 +284,49 @@ footer{
         padding: 15px 40px;
         border-radius: 50px;
         @include shadow;
+    }
+}
+
+
+/* ---------------------------------------- */
+/* ==              RESPONSIVE               */
+/*----------------------------------------- */
+
+
+@media all and (min-width: 480px){
+
+    .logo-header{
+        &__img {
+            width: 25%;
+        }
+    }
+
+    .fonction{
+        h1{
+            text-align: center;
+        }
+        &__button{
+            width: 35%;
+            margin: 25px auto;
+        }
+    }
+
+    .restos-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 40px;
+        grid-row-gap: 40px;
+    }
+
+    .menu-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 30px;
+    }
+
+    .footer-logo{
+        &__img{
+            width: 15%;
+        }
     }
 }

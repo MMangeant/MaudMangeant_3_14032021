@@ -57,6 +57,8 @@ body {
   padding: 15px 22px;
   border-radius: 50px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  position: relative;
 }
 
 .fonction {
@@ -73,6 +75,9 @@ body {
   margin: 25px 0 0 10px;
   border-radius: 20px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.fonction__button:hover {
+  background-color: #f5edff;
 }
 .fonction__button i {
   position: absolute;
@@ -179,6 +184,11 @@ footer {
 }
 
 /* Pages de Menu */
+.cont-menu {
+  max-width: 1500px;
+  margin: auto;
+}
+
 .fa-arrow-left {
   position: absolute;
   top: 50%;
@@ -189,7 +199,22 @@ footer {
 
 .fa-heart {
   font-size: 25px;
+  position: absolute;
+  right: 0;
+  transition: opacity 500ms;
+}
+.fa-heart.fas {
+  opacity: 0;
+  color: #9356DC;
+}
+.fa-heart.fas:hover {
   opacity: 0.7;
+}
+.fa-heart.far {
+  opacity: 0.7;
+}
+.fa-heart.far:hover {
+  opacity: 0;
 }
 
 .photo {
@@ -214,6 +239,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .menu-titre h1 {
   font-family: "Shrikhand", cursive;
@@ -251,6 +277,41 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  position: relative;
+}
+.menu-cont__plat:hover {
+  padding: 15px 80px 15px 15px;
+  transition: padding 500ms;
+}
+.menu-cont__plat:hover > .menu-cont__plat__select {
+  transform: scaleX(1);
+  opacity: 1;
+}
+.menu-cont__plat:hover .menu-cont__plat__txt p {
+  white-space: nowrap;
+  width: 175px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.menu-cont__plat__select {
+  position: absolute;
+  background-color: #99E2D0;
+  width: 18%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 20px 20px 0;
+  transform: scaleX(0);
+  opacity: 0;
+  transform-origin: right 50%;
+  transition: all 500ms;
+}
+.menu-cont__plat__select .fa-check-circle {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.3);
 }
 .menu-cont__plat__txt h3 {
   font-weight: 500;
@@ -280,7 +341,26 @@ footer {
   color: #fff;
   padding: 15px 40px;
   border-radius: 50px;
+  position: relative;
+  z-index: 1;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.menu-button a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top, #FF79DA, #9356DC);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 350ms;
+  border-radius: 50px;
+}
+.menu-button a:hover::after {
+  opacity: 1;
+  cursor: pointer;
 }
 
 /* ---------------------------------------- */
@@ -301,9 +381,18 @@ footer {
 
   .restos-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 40px;
     grid-row-gap: 40px;
+  }
+
+  .restos-cont__img {
+    height: 25vh;
+  }
+
+  .menu {
+    margin: 50vh 10vh 10vh 10vh;
+    border-radius: 40px;
   }
 
   .menu-grid {
@@ -312,8 +401,21 @@ footer {
     grid-column-gap: 30px;
   }
 
+  .menu-titre h1 {
+    font-size: 2.2rem;
+  }
+
   .footer-logo__img {
     width: 15%;
+  }
+}
+@media all and (min-width: 480px) and (max-width: 800px) {
+  .restos-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

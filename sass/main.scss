@@ -51,24 +51,50 @@ body{
     }
     &__button{
         padding: 30px 0 40px 0;
+        display: flex;
+        justify-content: center;
+        
         a{
             background: linear-gradient(to bottom, $col-ton2, $col-ton1);
             font-weight: 500;
             color: $col-blanc;
-            padding: 15px 22px;
+            padding: 15px 40px;
             border-radius: 50px;
-            @include shadow;
-            z-index: 1;
             position: relative;
+            z-index: 1;
+            @include shadow; 
+            cursor: pointer;
 
+            &::after{
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;  
+                left: 0;
+                background: linear-gradient(to top, $col-ton2, $col-ton1);
+                opacity: 0;
+                z-index: -1;
+                transition: opacity 350ms;
+                border-radius: 50px;
+            }
+        
+            &:hover {
+                &::after {
+                    opacity: 1;
+                }
+            }
         }
     }
 }
+
+
 
 .fonction{
     background-color: $col-blanc;
     @include padding-cote;
     @include padding-hautbas;
+    
     &__button{
         position: relative;
         background-color: $col-gris1;
@@ -76,8 +102,15 @@ body{
         margin: 25px 0 0 10px;
         border-radius: 20px;
         @include shadow;
+        cursor: pointer;
+
         &:hover{
             background-color: $col-ton4;
+            transition: all 700ms;
+            & .fas{
+                color: $col-ton1;
+                opacity: 1;
+            }
         }
         i{
             position: absolute;
@@ -282,17 +315,25 @@ footer{
         justify-content: space-between;
         align-items: flex-end;
         position: relative;
+        cursor: pointer;
+
         &:hover{
             padding: 15px 80px 15px 15px;
-            transition: padding 500ms;
+            transition: all 500ms;
             & > .menu-cont__plat__select {
                 transform: scaleX(1);
                 opacity: 1;
             }
             & .menu-cont__plat__txt {
+                h3{
+                    white-space: nowrap;
+                    width: 180px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
                 p{
                     white-space: nowrap;
-                    width: 175px;
+                    width: 180px;
                     text-overflow: ellipsis;
                     overflow: hidden;
                 }
@@ -309,7 +350,7 @@ footer{
             transform: scaleX(0);
             opacity: 0;
             transform-origin: right 50%;
-            transition : all 500ms;
+            transition : transform 500ms, opacity 800ms;
         
             .fa-check-circle{
                 color: white;
@@ -357,6 +398,7 @@ footer{
         position: relative;
         z-index: 1;
         @include shadow; 
+        cursor: pointer;
         
         &::after{
             content: "";
@@ -375,16 +417,60 @@ footer{
         &:hover {
             &::after {
                 opacity: 1;
-                cursor: pointer;
+                
             }
         }
     }
-
-    
-
-   
-
 }
+
+.loader {
+    animation:spin 1.2s infinite linear;
+    border:solid 2vmin transparent;
+    border-radius:50%;
+    border-right-color:$col-ton2;
+    border-top-color:$col-ton2;
+    box-sizing:border-box;
+    height:20vmin;
+    left:calc(50% - 10vmin);
+    position:fixed;
+    top:calc(50% - 10vmin);
+    width:20vmin;
+    z-index:1;
+    &:before {
+      animation:spin 2s infinite linear;
+      border:solid 2vmin transparent;
+      border-radius:50%;
+      border-right-color: $col-ton3;
+      border-top-color: $col-ton3;
+      box-sizing:border-box;
+      content:"";
+      height:16vmin;
+      left:0;
+      position:absolute;
+      top:0;
+      width:16vmin;
+    }
+    &:after {
+      animation:spin 3s infinite linear;
+      border:solid 2vmin transparent;
+      border-radius:50%;
+      border-right-color:$col-ton1;
+      border-top-color:$col-ton1;
+      box-sizing:border-box;
+      content:"";
+      height:12vmin;
+      left:2vmin;
+      position:absolute;
+      top:2vmin;
+      width:12vmin;
+    }
+  }
+  
+  @keyframes spin {
+    100% {
+      transform:rotate(360deg);
+    }
+  }
 
 
 /* ---------------------------------------- */

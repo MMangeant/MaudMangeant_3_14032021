@@ -49,16 +49,35 @@ body {
 }
 .diapo__button {
   padding: 30px 0 40px 0;
+  display: flex;
+  justify-content: center;
 }
 .diapo__button a {
   background: linear-gradient(to bottom, #FF79DA, #9356DC);
   font-weight: 500;
   color: #fff;
-  padding: 15px 22px;
+  padding: 15px 40px;
   border-radius: 50px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1;
   position: relative;
+  z-index: 1;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.diapo__button a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top, #FF79DA, #9356DC);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 350ms;
+  border-radius: 50px;
+}
+.diapo__button a:hover::after {
+  opacity: 1;
 }
 
 .fonction {
@@ -75,9 +94,15 @@ body {
   margin: 25px 0 0 10px;
   border-radius: 20px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .fonction__button:hover {
   background-color: #f5edff;
+  transition: all 700ms;
+}
+.fonction__button:hover .fas {
+  color: #9356DC;
+  opacity: 1;
 }
 .fonction__button i {
   position: absolute;
@@ -278,18 +303,25 @@ footer {
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  cursor: pointer;
 }
 .menu-cont__plat:hover {
   padding: 15px 80px 15px 15px;
-  transition: padding 500ms;
+  transition: all 500ms;
 }
 .menu-cont__plat:hover > .menu-cont__plat__select {
   transform: scaleX(1);
   opacity: 1;
 }
+.menu-cont__plat:hover .menu-cont__plat__txt h3 {
+  white-space: nowrap;
+  width: 180px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 .menu-cont__plat:hover .menu-cont__plat__txt p {
   white-space: nowrap;
-  width: 175px;
+  width: 180px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -304,7 +336,7 @@ footer {
   transform: scaleX(0);
   opacity: 0;
   transform-origin: right 50%;
-  transition: all 500ms;
+  transition: transform 500ms, opacity 800ms;
 }
 .menu-cont__plat__select .fa-check-circle {
   color: white;
@@ -344,6 +376,7 @@ footer {
   position: relative;
   z-index: 1;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 .menu-button a::after {
   content: "";
@@ -360,9 +393,56 @@ footer {
 }
 .menu-button a:hover::after {
   opacity: 1;
-  cursor: pointer;
 }
 
+.loader {
+  animation: spin 1.2s infinite linear;
+  border: solid 2vmin transparent;
+  border-radius: 50%;
+  border-right-color: #FF79DA;
+  border-top-color: #FF79DA;
+  box-sizing: border-box;
+  height: 20vmin;
+  left: calc(50% - 10vmin);
+  position: fixed;
+  top: calc(50% - 10vmin);
+  width: 20vmin;
+  z-index: 1;
+}
+.loader:before {
+  animation: spin 2s infinite linear;
+  border: solid 2vmin transparent;
+  border-radius: 50%;
+  border-right-color: #99E2D0;
+  border-top-color: #99E2D0;
+  box-sizing: border-box;
+  content: "";
+  height: 16vmin;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 16vmin;
+}
+.loader:after {
+  animation: spin 3s infinite linear;
+  border: solid 2vmin transparent;
+  border-radius: 50%;
+  border-right-color: #9356DC;
+  border-top-color: #9356DC;
+  box-sizing: border-box;
+  content: "";
+  height: 12vmin;
+  left: 2vmin;
+  position: absolute;
+  top: 2vmin;
+  width: 12vmin;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* ---------------------------------------- */
 /* ==              RESPONSIVE               */
 /*----------------------------------------- */

@@ -227,6 +227,8 @@ footer {
   position: absolute;
   right: 0;
   transition: opacity 500ms;
+  /* plein */
+  /* contour */
 }
 .fa-heart.fas {
   opacity: 0;
@@ -237,8 +239,10 @@ footer {
 }
 .fa-heart.far {
   opacity: 0.7;
+  color: black;
 }
 .fa-heart.far:hover {
+  color: #9356DC;
   opacity: 0;
 }
 

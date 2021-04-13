@@ -198,13 +198,13 @@ footer {
   width: 100%;
 }
 
-.footer-txt {
+.footer-menu__txt {
   position: relative;
 }
-.footer-txt i {
+.footer-menu__txt i {
   position: absolute;
 }
-.footer-txt p {
+.footer-menu__txt p {
   margin-left: 25px;
 }
 
@@ -288,14 +288,14 @@ footer {
   font-size: 1.1rem;
   margin: 7vh 0 4vh 0;
 }
-.menu-cont h2::before {
+.menu-cont h2::after {
   content: "";
   background-color: #99E2D0;
   height: 3px;
   width: 45px;
-  top: 0;
   position: absolute;
   top: 25px;
+  left: 0;
 }
 .menu-cont__plat {
   background-color: #fff;
@@ -399,7 +399,7 @@ footer {
   opacity: 1;
 }
 
-.loader {
+#loader {
   animation: spin 1.2s infinite linear;
   border: solid 2vmin transparent;
   border-radius: 50%;
@@ -408,12 +408,12 @@ footer {
   box-sizing: border-box;
   height: 20vmin;
   left: calc(50% - 10vmin);
-  position: fixed;
   top: calc(50% - 10vmin);
+  position: absolute;
   width: 20vmin;
   z-index: 1;
 }
-.loader:before {
+#loader:before {
   animation: spin 2s infinite linear;
   border: solid 2vmin transparent;
   border-radius: 50%;
@@ -427,7 +427,7 @@ footer {
   top: 0;
   width: 16vmin;
 }
-.loader:after {
+#loader:after {
   animation: spin 3s infinite linear;
   border: solid 2vmin transparent;
   border-radius: 50%;
@@ -443,8 +443,62 @@ footer {
 }
 
 @keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
   100% {
     transform: rotate(360deg);
+  }
+}
+/* #loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border:solid 2vmin transparent;
+  border-radius:50%;
+  border-right-color:$col-ton2;
+  border-top-color:$col-ton2;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+} */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 3s;
+  animation-name: animatebottom;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes animatebottom {
+  0% {
+    bottom: -100px;
+    opacity: 0;
+  }
+  50% {
+    bottom: -100px;
+    opacity: 0;
+  }
+  100% {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+@keyframes animatebottom {
+  0% {
+    bottom: -100px;
+    opacity: 0;
+  }
+  50% {
+    bottom: -100px;
+    opacity: 0;
+  }
+  100% {
+    bottom: 0;
+    opacity: 1;
   }
 }
 /* ---------------------------------------- */

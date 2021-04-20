@@ -15,13 +15,13 @@ body{
     position: relative;
     @include shadow;
     z-index: 1;
-    &__img {
-        width: 50%;
-        margin: auto;
-        padding: 30px 0 10px;
-        img{
-            width: 100%;
-        }
+    h1{
+        font-family: $typo-titre;
+        text-align: center;
+        font-weight: normal;
+        margin: 0;
+        font-size: 3.3em;
+        padding-top: 15px;
     }
 }
 
@@ -43,7 +43,7 @@ body{
     @include padding-cote;
     text-align: center;
     @include padding-hautbas;
-    h1{
+    h2{
         font-weight: bold;
     }
     p{
@@ -72,7 +72,8 @@ body{
                 right: 0;
                 bottom: 0;  
                 left: 0;
-                background: linear-gradient(to top, $col-ton2, $col-ton1);
+                //background: linear-gradient(to top, $col-ton2, $col-ton1);
+                background: $col-ton4;
                 opacity: 0;
                 z-index: -1;
                 transition: opacity 350ms;
@@ -80,8 +81,10 @@ body{
             }
         
             &:hover {
+                @include shadowHover; 
                 &::after {
-                    opacity: 1;
+                    //opacity: 1;
+                    opacity: 0.25;
                 }
             }
         }
@@ -94,7 +97,12 @@ body{
     background-color: $col-blanc;
     @include padding-cote;
     @include padding-hautbas;
-    
+    &__cont{
+        display: flex;
+        flex-direction: column;
+        max-width: 1500px;
+        margin: auto;
+    }
     &__button{
         position: relative;
         background-color: $col-gris1;
@@ -149,12 +157,16 @@ body{
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 30px;
+    max-width: 1500px;
+    margin: auto;
 }
 
 .restos-cont{
     background-color: $col-blanc;
     border-radius: 20px;
     @include shadow;
+    color: black;
+    text-decoration: none;
     &__img {
         height: 45vh;
         img{
@@ -168,7 +180,7 @@ body{
     &__text{
         padding: 17px;
         position: relative;
-        h2{
+        h3{
             margin: 0;
             @include typo2;
         }
@@ -196,23 +208,26 @@ footer{
 }
 
 .footer-logo{
-    &__img {
-        width: 30%;
-        img{
-            filter: invert(1);
-            width: 100%;
-        }
+    h1{
+        font-family: $typo-titre;
+        font-weight: normal;
+        margin: 0;
+        font-size: 2em;
     }
 }
 
 .footer-menu{
+    display: flex;
+    flex-direction: column;
     &__txt{
+        display: flex;
+        align-items: center;
         position: relative;
         i{
             position: absolute;
         }
         p{
-            margin-left: 25px;
+            margin-left: 30px;
         }
     }
     
@@ -233,32 +248,44 @@ footer{
     transform: translateY(-50%);
     left: 5%;
     font-size: 25px;
+    color: black;
 }
 
-.fa-heart{
-    font-size: 25px;
-    position: absolute;
-    right: 0;
-    transition: opacity 500ms;
-    /* plein */
-    &.fas{
-        opacity: 0;
-        color: $col-ton1;
-        &:hover{
-            opacity: 0.7;
+
+
+.heart{
+    padding-right: 20px;
+    .fa-heart{
+        font-size: 27px;
+        opacity: 0.7;
+    }
+    .fill {
+        cursor: pointer;
+        &:hover {
+            animation: fill 1s ease-out;
+            opacity: 1;
+            background: linear-gradient(to bottom, $col-ton2, $col-ton1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight:bold;
         }
     }
-    /* contour */
-    &.far{
-        opacity: 0.7;
-        color: black;
-        &:hover{
-            color: $col-ton1;
-            opacity: 0;
-        }    
+    
+}
 
+@keyframes fill{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
     }
 }
+
+
 
 .photo{
     position: absolute;
@@ -282,10 +309,11 @@ footer{
     justify-content: space-between;
     align-items: center;
     position: relative;
-    h1{
+    h2{
         font-family: $typo-titre;
         font-size: 1.8rem;
         font-weight: normal;
+        margin-bottom: 15px;
     }
 }
 
@@ -295,7 +323,7 @@ footer{
 }
 
 .menu-cont{
-    h2{
+    h3{
         text-transform: uppercase;
         font-weight: 300;
         position: relative;
@@ -331,7 +359,7 @@ footer{
                 opacity: 1;
             }
             & .menu-cont__plat__txt {
-                h3{
+                h4{
                     white-space: nowrap;
                     width: 180px;
                     text-overflow: ellipsis;
@@ -368,7 +396,7 @@ footer{
 
         }
         &__txt{
-            h3{
+            h4{
                 @include typo2;
                 margin: 0;
                 margin-bottom: 1vh;
@@ -413,7 +441,8 @@ footer{
             right: 0;
             bottom: 0;  
             left: 0;
-            background: linear-gradient(to top, $col-ton2, $col-ton1);
+            //background: linear-gradient(to top, $col-ton2, $col-ton1);
+            background: $col-ton4;
             opacity: 0;
             z-index: -1;
             transition: opacity 350ms;
@@ -421,64 +450,77 @@ footer{
         }
     
         &:hover {
+            @include shadowHover; 
             &::after {
-                opacity: 1;
-                
+                //opacity: 1;
+                opacity: 0.25;
             }
         }
     }
 }
 
 
-#loader {
-    animation:spin 1.2s infinite linear;
-    //animation-fill-mode: both;
-    border:solid 2vmin transparent;
-    border-radius:50%;
-    border-right-color:$col-ton2;
-    border-top-color:$col-ton2;
-    box-sizing:border-box;
-    height:20vmin;
-    left:calc(50% - 10vmin);
-    top:calc(50% - 10vmin);
-    position: absolute;
-    width:20vmin;
-    z-index:1;
+.loading {
+    animation-name: opacity;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+
+    &__spinner{
+        animation: spin 1.5s infinite linear;
+        animation-fill-mode: both;
+        border:solid 2vmin transparent;
+        border-radius:50%;
+        border-right-color:$col-ton2;
+        border-top-color:$col-ton2;
+        box-sizing:border-box;
+        height:20vmin;
+        left:calc(50% - 10vmin);
+        top:calc(50% - 10vmin);
+        position: absolute;
+        width:20vmin;
+        z-index:1;
+        
+        &:before {
+        animation:spin 2s infinite linear;
+        border:solid 2vmin transparent;
+        border-radius:50%;
+        border-right-color: $col-ton3;
+        border-top-color: $col-ton3;
+        box-sizing:border-box;
+        content:"";
+        height:16vmin;
+        left:0;
+        position:absolute;
+        top:0;
+        width:16vmin;
+        }
+        &:after {
+        animation:spin 3s infinite linear;
+        border:solid 2vmin transparent;
+        border-radius:50%;
+        border-right-color:$col-ton1;
+        border-top-color:$col-ton1;
+        box-sizing:border-box;
+        content:"";
+        height:12vmin;
+        left:2vmin;
+        position:absolute;
+        top:2vmin;
+        width:12vmin;
+        }
+    }
     
-    &:before {
-      animation:spin 2s infinite linear;
-      border:solid 2vmin transparent;
-      border-radius:50%;
-      border-right-color: $col-ton3;
-      border-top-color: $col-ton3;
-      box-sizing:border-box;
-      content:"";
-      height:16vmin;
-      left:0;
-      position:absolute;
-      top:0;
-      width:16vmin;
-    }
-    &:after {
-      animation:spin 3s infinite linear;
-      border:solid 2vmin transparent;
-      border-radius:50%;
-      border-right-color:$col-ton1;
-      border-top-color:$col-ton1;
-      box-sizing:border-box;
-      content:"";
-      height:12vmin;
-      left:2vmin;
-      position:absolute;
-      top:2vmin;
-      width:12vmin;
-    }
   }
   
-  @keyframes spin {
+@keyframes opacity { 
+    0%{ opacity:1 } 
+    50%{ opacity:1 } 
+    100%{ opacity:0 }
+  }
+
+@keyframes spin {
     0% { 
         transform: rotate(0deg); 
-        
     }  
     100% {
         transform:rotate(360deg);
@@ -486,44 +528,41 @@ footer{
   }
 
 
-  /* #loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 120px;
-    height: 120px;
-    margin: -76px 0 0 -76px;
-    border:solid 2vmin transparent;
-    border-radius:50%;
-    border-right-color:$col-ton2;
-    border-top-color:$col-ton2;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-  } */
-
-  .animate-bottom {
+.animate-bottom {
     position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 3s;
-    animation-name: animatebottom;
+    animation-name: animateBottom;
     animation-duration: 3s;
   }
   
-  @-webkit-keyframes animatebottom {
-    0% { bottom:-100px; opacity:0 } 
-    50%{ bottom:-100px; opacity:0 }
-    100% { bottom:0px; opacity:1 }
-  }
-  
-  @keyframes animatebottom { 
+@keyframes animateBottom { 
     0%{ bottom:-100px; opacity:0 } 
     50%{ bottom:-100px; opacity:0 } 
     100%{ bottom:0; opacity:1 }
   }
   
-  
+ 
+#entrees{
+    position: relative;
+    animation: animateLeft 1s ease-in;
+}
 
+#plats{
+    position: relative;
+    animation: animateLeft 1s ease-in 300ms;
+    animation-fill-mode: backwards;
+}
+
+#desserts{
+    position: relative;
+    animation: animateLeft 1s ease-in 600ms;
+    animation-fill-mode: backwards;
+}
+
+@keyframes animateLeft { 
+    0%{ left:-100px; opacity:0 } 
+    30%{ left:-100px; opacity:0 } 
+    100%{ left:0; opacity:1 }
+}
 
 
 /* ---------------------------------------- */
@@ -533,14 +572,10 @@ footer{
 
 @media all and (min-width: 480px){
 
-    .logo-header{
-        &__img {
-            width: 25%;
-        }
-    }
+    
 
     .fonction{
-        h1{
+        h2{
             text-align: center;
         }
         &__button{
@@ -564,8 +599,8 @@ footer{
     }
 
     .menu{
-        margin: 50vh 10vh 10vh 10vh;
-        border-radius: 40px;
+        margin: 37vh 10vh 10vh 10vh;
+        border-radius: 40px 40px 0 0;
     }
 
     .menu-grid{
@@ -575,14 +610,8 @@ footer{
     }
 
     .menu-titre{
-        h1{
+        h2{
             font-size: 2.2rem;
-        }
-    }
-
-    .footer-logo{
-        &__img{
-            width: 15%;
         }
     }
 
@@ -599,6 +628,47 @@ footer{
         grid-template-columns: 1fr 1fr;
     }
 }
+
+@media all and (min-width: 900px){
+    .fonction{
+        &__cont{
+            flex-direction: row;
+        }
+        &__button{
+            margin: 25px;
+        }
+    }
+    
+}
+
+
+@media all and (min-width: 800px){
+    .footer-logo{
+        h1{
+            text-align: center;
+        }
+    }
+    
+    .footer-menu{
+        justify-content: space-around;
+        max-width: 750px;
+        margin: auto;
+        flex-direction: row;
+
+        
+    }
+    
+}
+
+@media all and (min-width: 1500px){
+    .restos{
+        h2{
+            text-align: center;
+        }
+    }
+    
+}
+
 
 
 

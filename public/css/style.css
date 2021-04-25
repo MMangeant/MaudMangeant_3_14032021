@@ -245,6 +245,15 @@ footer {
   margin-left: 30px;
   cursor: pointer;
 }
+.footer-menu__txt p a {
+  color: white;
+  text-decoration: none;
+}
+.footer-menu__txt p:hover {
+  font-weight: 500;
+  font-style: italic;
+  transition: 300ms;
+}
 
 /* Pages de Menu */
 .cont-menu {

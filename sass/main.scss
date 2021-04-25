@@ -249,9 +249,18 @@ footer{
         p{
             margin-left: 30px;
             cursor: pointer;
+            a{
+                color: white;
+                text-decoration : none;
+            }
+            &:hover{
+                font-weight: 500;
+                font-style: italic;
+                transition: 300ms;
+            }
         }
         
-        
+
     }
     
 }

@@ -84,7 +84,7 @@ body{
                 @include shadowHover; 
                 &::after {
                     //opacity: 1;
-                    opacity: 0.25;
+                    opacity: 0.2;
                 }
             }
         }
@@ -167,6 +167,12 @@ body{
     @include shadow;
     color: black;
     text-decoration: none;
+    position: relative;
+    &:hover{
+        transform: scale(1.03);
+        transition: 500ms;
+        @include shadowHover;
+    }
     &__img {
         height: 45vh;
         img{
@@ -176,6 +182,7 @@ body{
             border-radius: 20px;
             border-radius: 20px 20px 0 0;
         }
+        
     }
     &__text{
         padding: 17px;
@@ -196,6 +203,18 @@ body{
             transform: translateY(-50%);
             padding-right: 17px;
         }
+    }
+    &__pastille{
+        position: absolute;
+        background-color: $col-ton3;
+        color : $col-ton5;
+        font-weight: bold;
+        font-size: 0.9rem;
+        padding: 7px 12px;
+        right: 13px;
+        top: 13px;
+        border-radius: 3px;
+        font-weight: 500;
     }
 }
 
@@ -453,7 +472,7 @@ footer{
             @include shadowHover; 
             &::after {
                 //opacity: 1;
-                opacity: 0.25;
+                opacity: 0.2;
             }
         }
     }

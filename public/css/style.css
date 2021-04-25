@@ -77,10 +77,10 @@ body {
   border-radius: 50px;
 }
 .diapo__button a:hover {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
 }
 .diapo__button a:hover::after {
-  opacity: 0.25;
+  opacity: 0.2;
 }
 
 .fonction {
@@ -160,6 +160,12 @@ body {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
   color: black;
   text-decoration: none;
+  position: relative;
+}
+.restos-cont:hover {
+  transform: scale(1.03);
+  transition: 500ms;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
 }
 .restos-cont__img {
   height: 45vh;
@@ -192,6 +198,18 @@ body {
   top: 50%;
   transform: translateY(-50%);
   padding-right: 17px;
+}
+.restos-cont__pastille {
+  position: absolute;
+  background-color: #99E2D0;
+  color: #227653;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 7px 12px;
+  right: 13px;
+  top: 13px;
+  border-radius: 3px;
+  font-weight: 500;
 }
 
 footer {
@@ -422,10 +440,10 @@ footer {
   border-radius: 50px;
 }
 .menu-button a:hover {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
 }
 .menu-button a:hover::after {
-  opacity: 0.25;
+  opacity: 0.2;
 }
 
 .loading {

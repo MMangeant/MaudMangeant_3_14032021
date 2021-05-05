@@ -1,0 +1,32 @@
+.bt{
+    background: linear-gradient(to bottom, $col-ton2, $col-ton1);
+        font-weight: 500;
+        color: $col-blanc;
+        padding: 15px 40px;
+        border-radius: 50px;
+        position: relative;
+        z-index: 1;
+        @include shadow; 
+        cursor: pointer;
+        
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;  
+            left: 0;
+            background: $col-ton4;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 350ms;
+            border-radius: 50px;
+        }
+    
+        &:hover {
+            @include shadowHover; 
+            &::after {
+                opacity: 0.2;
+            }
+        }
+}

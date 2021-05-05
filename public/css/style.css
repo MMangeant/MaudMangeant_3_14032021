@@ -1,5 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+.bt {
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  font-weight: 500;
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 50px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.bt::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #f5edff;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 350ms;
+  border-radius: 50px;
+}
+.bt:hover {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
+}
+.bt:hover::after {
+  opacity: 0.2;
+}
+
 body {
   background-color: #f6f6f6;
   box-sizing: border-box;
@@ -52,36 +83,6 @@ body {
   padding: 30px 0 40px 0;
   display: flex;
   justify-content: center;
-}
-.diapo__button a {
-  background: linear-gradient(to bottom, #FF79DA, #9356DC);
-  font-weight: 500;
-  color: #fff;
-  padding: 15px 40px;
-  border-radius: 50px;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-.diapo__button a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #f5edff;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 350ms;
-  border-radius: 50px;
-}
-.diapo__button a:hover {
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
-}
-.diapo__button a:hover::after {
-  opacity: 0.2;
 }
 
 .fonction {
@@ -428,36 +429,6 @@ footer {
   padding: 30px 0 40px 0;
   display: flex;
   justify-content: center;
-}
-.menu-button a {
-  background: linear-gradient(to bottom, #FF79DA, #9356DC);
-  font-weight: 500;
-  color: #fff;
-  padding: 15px 40px;
-  border-radius: 50px;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-.menu-button a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #f5edff;
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 350ms;
-  border-radius: 50px;
-}
-.menu-button a:hover {
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.4);
-}
-.menu-button a:hover::after {
-  opacity: 0.2;
 }
 
 .loading {

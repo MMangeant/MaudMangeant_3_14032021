@@ -626,5 +626,15 @@ footer {
     text-align: center;
   }
 }
+@media all and (min-width: 800px) and (max-width: 1024px) {
+  .menu-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (min-width: 480px) and (max-width: 770px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

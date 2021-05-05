@@ -73,7 +73,6 @@ body{
                 right: 0;
                 bottom: 0;  
                 left: 0;
-                //background: linear-gradient(to top, $col-ton2, $col-ton1);
                 background: $col-ton4;
                 opacity: 0;
                 z-index: -1;
@@ -84,7 +83,6 @@ body{
             &:hover {
                 @include shadowHover; 
                 &::after {
-                    //opacity: 1;
                     opacity: 0.2;
                 }
             }
@@ -478,7 +476,6 @@ footer{
             right: 0;
             bottom: 0;  
             left: 0;
-            //background: linear-gradient(to top, $col-ton2, $col-ton1);
             background: $col-ton4;
             opacity: 0;
             z-index: -1;
@@ -489,7 +486,6 @@ footer{
         &:hover {
             @include shadowHover; 
             &::after {
-                //opacity: 1;
                 opacity: 0.2;
             }
         }
@@ -707,9 +703,6 @@ footer{
     }
     
 }
-
-
-
 
 
 
